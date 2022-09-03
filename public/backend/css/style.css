@@ -24042,3 +24042,16 @@ img.away, img.busy, img.offline, img.online {
 div.dataTables_wrapper div.dataTables_length select {
     width: auto;
 }
+    @media (min-width: 768px){
+        .navbar-custom-menu .navbar-nav .search-bar .lookup-circle input {
+            background-color: rgba(255, 255, 255, 0.1);
+            height: 35px;
+            border-radius: 0.25rem;
+        }
+        .lookup-circle input {
+
+            width: 150px;
+
+        }
+    }
+
