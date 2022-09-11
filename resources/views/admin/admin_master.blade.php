@@ -17,15 +17,15 @@
     <!-- Style-->
     <link rel="stylesheet" href="{{asset('backend/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('backend/css/skin_color.css')}}">
-
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 
 <body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
 
 <div class="wrapper">
 
-@include('admin.body.header')
-@include('admin.body.sidebar')
+    @include('admin.body.header')
+    @include('admin.body.sidebar')
 
 
 
@@ -34,7 +34,7 @@
         <div class="container-full">
 
             <!-- Main content -->
-           @yield('admin')
+            @yield('admin')
             <!-- /.content -->
         </div>
     </div>
@@ -42,12 +42,12 @@
     @include('admin.body.footer')
 
 
-
 </div>
 <!-- ./wrapper -->
 
 
 <!-- Vendor JS -->
+
 <script src="{{asset('backend/js/vendors.min.js')}}"></script>
 <script src="{{asset('assets/icons/feather-icons/feather.min.js')}}"></script>
 <script src="{{asset('assets/vendor_components/easypiechart/dist/jquery.easypiechart.js')}}"></script>
@@ -66,7 +66,7 @@
 <script>
     @if(Session::has('message'))
     var type = "{{ Session::get('alert-type','info') }}"
-    switch(type){
+    switch (type) {
         case 'info':
             toastr.info(" {{ Session::get('message') }} ");
             break;
@@ -87,8 +87,8 @@
 </script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    $(function (){
-        $(document).on('click','#delete',function(e){
+    $(function () {
+        $(document).on('click', '#delete', function (e) {
             e.preventDefault();
             let link = $(this).attr('href');
             Swal.fire({
@@ -98,8 +98,8 @@
                 showCancelButton: true,
                 confirmButtonColor: '#EF3737',
                 cancelButtonColor: '#475f7b',
-                background:'#272e48',
-                color:'#fff',
+                background: '#272e48',
+                color: '#fff',
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.isConfirmed) {
