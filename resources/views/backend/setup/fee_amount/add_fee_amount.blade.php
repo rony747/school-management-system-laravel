@@ -39,12 +39,6 @@
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label>Amount *</label>
-                                                <input type="text" name="amount[]" required class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="form-group">
                                                 <label>Class Name</label>
                                                 <select class="form-control" name="class_id[]">
                                                     <option selected disabled>Select Class</option>
@@ -54,6 +48,13 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Amount *</label>
+                                                <input type="text" name="amount[]" required class="form-control">
+                                            </div>
+                                        </div>
+
                                         <div class="col-md-2" style="padding-top: 25px">
                                         <span class="btn btn-success addeventmore"> <i
                                                 class="fa fa-plus-circle"></i></span>

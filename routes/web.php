@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\Setup\StudentShiftController;
 use App\Http\Controllers\Backend\Setup\StudentYearController;
 use App\Http\Controllers\Backend\UserController;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,14 +26,16 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])->group(function () {
-    Route::get('/dashboard', function () { return view('admin.index'); })->name('dashboard');
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.index');
+    })->name('dashboard');
 });
 Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
 
 // User Management
-Route::prefix('users')->group(function(){
+Route::prefix('users')->group(function () {
     Route::get('/view', [UserController::class, 'userView'])->name('user.view');
     Route::get('/add', [UserController::class, 'userAdd'])->name('user.add');
     Route::post('/store', [UserController::class, 'userStore'])->name('user.store');
@@ -41,7 +44,7 @@ Route::prefix('users')->group(function(){
     Route::get('/delete/{id}', [UserController::class, 'userDelete'])->name('user.delete');
 });
 // Profile and password Management
-Route::prefix('profile')->group(function(){
+Route::prefix('profile')->group(function () {
     Route::get('/view', [ProfileController::class, 'profileView'])->name('profile.view');
     Route::get('/edit/', [ProfileController::class, 'profileEdit'])->name('profile.edit');
     Route::post('/update/', [ProfileController::class, 'profileUpdate'])->name('profile.update');
@@ -49,7 +52,7 @@ Route::prefix('profile')->group(function(){
     Route::post('/password/update/', [ProfileController::class, 'passwordUpdate'])->name('password.update');
 });
 // Setup Management
-Route::prefix('setup')->group(function(){
+Route::prefix('setup')->group(function () {
     Route::get('/student/class/view', [StudentClassController::class, 'studentClassView'])->name('student.class.view');
     Route::get('/student/class/add', [StudentClassController::class, 'studentClassAdd'])->name('student.class.add');
     Route::post('/student/class/store', [StudentClassController::class, 'studentClassStore'])->name('student.class.store');
@@ -93,4 +96,7 @@ Route::prefix('setup')->group(function(){
     Route::get('/fee/amount/view', [FeeAmountController::class, 'feeAmountView'])->name('fee.amount.view');
     Route::get('/fee/amount/add', [FeeAmountController::class, 'feeAmountAdd'])->name('fee.amount.add');
     Route::post('/fee/amount/store', [FeeAmountController::class, 'feeAmountStore'])->name('fee.amount.store');
+    Route::get('/fee/amount/edit/{fee_category_id}', [FeeAmountController::class, 'feeAmountEdit'])->name('fee.amount.edit');
+    Route::post('/fee/amount/update/{fee_category_id}', [FeeAmountController::class, 'feeAmountUpdate'])->name('fee.amount.update');
+
 });

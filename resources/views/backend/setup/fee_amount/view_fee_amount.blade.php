@@ -21,8 +21,6 @@
                                 <tr>
                                     <th width="10%">#</th>
                                     <th>Fee Category</th>
-                                    <th>Class</th>
-                                    <th>Fee</th>
                                     <th width="20%">Action</th>
 
                                 </tr>
@@ -32,12 +30,10 @@
                                     <tr>
                                         <td>{{$key+1}}</td>
                                         <td>{{$row->feeCategory->name}}</td>
-                                        <td>{{$row->classes->name}}</td>
-                                        <td>{{$row->amount}}</td>
-                                        <td><a href="{{route('fee.category.edit', $row->id)}}"
+                                        <td><a href="{{route('fee.amount.edit', $row->fee_category_id)}}"
                                                class="btn btn-circle btn-dark btn-sm mr-2"><i
                                                     class="mdi mdi-pencil"></i></a>
-                                            <a href="{{route('fee.category.delete', $row->id)}}"
+                                            <a href=""
                                                class="btn btn-circle btn-dark btn-sm mr-2" id="delete"><i
                                                     class="mdi mdi-close"></i></a>
 
